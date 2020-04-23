@@ -9,13 +9,14 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.STORE_RESULT:
             return {
                 ...state,
-                results: state.results.concat({id: new Date(), val: action.result }) // not push!
+                results: state.results.concat({id: new Date(), val: action.result }) // concat returns new array. push adds to exisiting array!
             }
         case actionTypes.DELETE_RESULT:
             // const id = 2;
             // const newArray = [...state.results];
-            // newArray.splice(id, 1);
-            const updatedArray = state.results.filter(result => result.id !== action.resultElementId); // filter reurns new array!
+            // newArray.splice(id, 1);  // removes one elemtn at index id
+            const updatedArray = state.results.filter(result => result.id !== action.resultElementId); // filter always returns new array!
+            // this removes all elements that doesn´t fullfill the filter: all elements that are not the deleted one.
             return {
                 ...state,
                 results: updatedArray
