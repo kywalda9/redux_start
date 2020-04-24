@@ -10,7 +10,8 @@ const reducer = ( state = initialState, action ) => {
             return {
                 ...state,
                 results: state.results.concat({id: new Date(), val: action.result }) // concat returns new array. push adds to exisiting array!
-            }
+/*                 results: state.results.concat({id: new Date(), val: action.result * 2 }) // concat returns new array. push adds to exisiting array!
+ */            }
         case actionTypes.DELETE_RESULT:
             // const id = 2;
             // const newArray = [...state.results];
